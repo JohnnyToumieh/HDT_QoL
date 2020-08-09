@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDT_QoL", "HDT_QoL\HDT_QoL.csproj", "{D706B982-81A2-40F1-BDAC-D8AE5B50EFE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D706B982-81A2-40F1-BDAC-D8AE5B50EFE1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D706B982-81A2-40F1-BDAC-D8AE5B50EFE1}.Debug|x86.Build.0 = Debug|Any CPU
+		{D706B982-81A2-40F1-BDAC-D8AE5B50EFE1}.Release|x86.ActiveCfg = Release|Any CPU
+		{D706B982-81A2-40F1-BDAC-D8AE5B50EFE1}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E7017F47-0E56-443A-A5B6-1AE2F491D04C}
+	EndGlobalSection
+EndGlobal

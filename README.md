@@ -23,9 +23,9 @@ https://github.com/JohnnyToumieh/Hearthstone-Deck-Tracker
 
 ## Screenshots
 
-![enter image description here](https://imgur.com/2ZWzhR7)
+![enter image description here](https://i.imgur.com/eydDAfs.png)
 
-![enter image description here](https://imgur.com/Js0j1p1)
+![enter image description here](https://i.imgur.com/CK7NorN.png)
 
 ## Contact
 Discord: Lesterberne#3878

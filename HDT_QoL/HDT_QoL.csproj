@@ -36,6 +36,9 @@
       <HintPath>..\..\..\..\Downloads\Hearthstone-Deck-Tracker-master\Hearthstone Deck Tracker\bin\x86\Release\HearthstoneDeckTracker.exe</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\..\..\..\Downloads\Hearthstone-Deck-Tracker-master\Hearthstone Deck Tracker\bin\x86\Release\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -51,6 +54,9 @@
     <Compile Include="MainOverlay.xaml.cs">
       <DependentUpon>MainOverlay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="BannedTribeOverlay.xaml">
@@ -58,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainOverlay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -9,6 +9,7 @@ namespace HDT_QoL
     public class MainPlugin : IPlugin
     {
         private MainOverlay _overlay;
+        private SettingsWindow _settingWindow;
 
         public string Name => "HDT_QoL";
 
@@ -18,13 +19,26 @@ namespace HDT_QoL
 
         public string Author => "Lesterberne";
 
-        public Version Version => new Version(0, 0, 1);
+        public Version Version => new Version(0, 0, 3);
 
         public MenuItem MenuItem => CreateMenu();
 
         private MenuItem CreateMenu()
         {
-            return new MenuItem { Header = "HDT_QoL Settings" }; ;
+            MenuItem menu = new MenuItem { Header = "HDT_QoL Settings" };
+
+            menu.Click += (sender, args) =>
+            {
+                OnButtonPress();
+            };
+
+            return menu;
+        }
+
+        public void OnButtonPress()
+        {
+            _settingWindow = new SettingsWindow();
+            _settingWindow.Show();
         }
 
         public void OnLoad()
@@ -35,7 +49,7 @@ namespace HDT_QoL
 
             Core.OverlayCanvas.Children.Add(_overlay);
             Canvas.SetTop(_overlay, 0);
-            Canvas.SetRight(_overlay, 410);
+            Canvas.SetRight(_overlay, 0);
 
             GameEvents.OnGameStart.Add(MainHandler.GameStart);
             GameEvents.OnGameEnd.Add(MainHandler.GameEnd);
@@ -55,11 +69,6 @@ namespace HDT_QoL
         public void OnUnload()
         {
             Core.OverlayCanvas.Children.Remove(_overlay);
-        }
-
-        public void OnButtonPress()
-        {
-
         }
 
         public void OnUpdate()

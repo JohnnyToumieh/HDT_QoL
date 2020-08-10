@@ -1,0 +1,31 @@
+﻿<controls:MetroWindow x:Class="HDT_QoL.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="HDT QoL Settings" Height="180" Width="250"
+        BorderThickness="1">
+    <StackPanel Margin="15">
+        <Border BorderThickness="0,0,0,1" Margin="0,0,0,10">
+            <TextBlock FontWeight="Bold" FontSize="16">OPTIONS</TextBlock>
+        </Border>
+        <Border BorderThickness="0,1,0,0" Margin="0,0,0,8" Padding="4,4,4,0">
+            <StackPanel>
+                <CheckBox x:Name="CheckboxEnableBannedTribe" Content="Show banned tribe"
+                        Checked="ToggleBannedTribe" Unchecked="ToggleBannedTribe"
+                        HorizontalAlignment="Left" Margin="0,4,0,8"
+                        VerticalAlignment="Top"
+                        ToolTip="Enables the banned tribe overlay." IsChecked="True" />
+                <CheckBox x:Name="CheckboxEnableAverageDamage" Content="Show average damage"
+                        Checked="ToggleAverageDamage" Unchecked="ToggleAverageDamage"
+                        HorizontalAlignment="Left" Margin="0,4,0,0"
+                        VerticalAlignment="Top"
+                        ToolTip="Display average damage in Bob's Buddy." IsChecked="True" />
+                <CheckBox x:Name="CheckboxEnableMedianDamage" Content="Show median damage"
+                        Checked="ToggleMedianDamage" Unchecked="ToggleMedianDamage"
+                        HorizontalAlignment="Left" Margin="0,4,0,8"
+                        VerticalAlignment="Top"
+                        ToolTip="Display median damage in Bob's Buddy." IsChecked="True" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</controls:MetroWindow>

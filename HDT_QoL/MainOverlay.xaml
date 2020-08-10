@@ -4,11 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:overlay="clr-namespace:HDT_QoL"
+             xmlns:overlay2="clr-namespace:Hearthstone_Deck_Tracker.Controls.Overlay;assembly=HearthstoneDeckTracker"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Name="BgsTopBar2" Orientation="Horizontal">
         <Border x:Name="BannedTribeBorder" Visibility="Collapsed" BorderBrush="#800000" BorderThickness="5" CornerRadius="2">
             <overlay:BannedTribeOverlay x:Name="BannedTribeOverlay" Height="55" VerticalAlignment="Top" />
         </Border>
+        <overlay2:TurnCounter x:Name="TurnCounter" Visibility="Hidden" Margin="0,0,2,0"  Height="55" VerticalAlignment="Top" />
+        <overlay2:BattlegroundsMinions x:Name="BattlegroundsMinionsPanel" Visibility="Hidden" />
     </StackPanel>
 </UserControl>

@@ -32,8 +32,6 @@ namespace HDT_QoL
         }
 
         public static MainOverlay Overlay;
-        public static AverageDamageOverlay AvgDamageOverlay;
-        public static MedianDamageOverlay MedDamageOverlay;
         public static Guid GameID;
         public static bool IsBattlegroundsMode;
         public static bool IsMissingTribeRetrieved;

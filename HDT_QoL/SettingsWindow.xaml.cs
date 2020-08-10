@@ -26,29 +26,5 @@ namespace HDT_QoL
                 MainHandler.IsBannedTribeEnabled = false;
             }
         }
-
-        private void ToggleAverageDamage(object sender, RoutedEventArgs e)
-        {
-            if (CheckboxEnableAverageDamage.IsChecked == true)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
-
-        private void ToggleMedianDamage(object sender, RoutedEventArgs e)
-        {
-            if (CheckboxEnableMedianDamage.IsChecked == true)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
     }
 }

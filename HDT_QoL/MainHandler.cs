@@ -35,7 +35,7 @@ namespace HDT_QoL
         public static Guid GameID;
         public static bool IsBattlegroundsMode;
         public static bool IsMissingTribeRetrieved;
-        public static bool _isBannedTribeEnabled = true;
+        public static bool _isBannedTribeEnabled = Properties.Settings.Default.IsBannedTribeEnabled;
 
         internal static void GameStart()
         {

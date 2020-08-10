@@ -19,7 +19,7 @@ namespace HDT_QoL
 
         public string Author => "Lesterberne";
 
-        public Version Version => new Version(0, 0, 3);
+        public Version Version => new Version(0, 0, 4);
 
         public MenuItem MenuItem => CreateMenu();
 

@@ -9,6 +9,8 @@ namespace HDT_QoL
     public class MainPlugin : IPlugin
     {
         private MainOverlay _overlay;
+        private AverageDamageOverlay _averageDamageOverlay;
+        private MedianDamageOverlay _medianDamageOverlay;
         private SettingsWindow _settingWindow;
 
         public string Name => "HDT_QoL";
@@ -44,8 +46,12 @@ namespace HDT_QoL
         public void OnLoad()
         {
             _overlay = new MainOverlay();
+            _averageDamageOverlay = new AverageDamageOverlay();
+            _medianDamageOverlay = new MedianDamageOverlay();
 
             MainHandler.Overlay = _overlay;
+            MainHandler.AvgDamageOverlay = _averageDamageOverlay;
+            MainHandler.MedDamageOverlay = _medianDamageOverlay;
 
             Core.OverlayCanvas.Children.Add(_overlay);
             Canvas.SetTop(_overlay, 0);
@@ -58,12 +64,20 @@ namespace HDT_QoL
 
         public void MountOverlay()
         {
+            Border ResultPanelBorder = (Border)Core.OverlayWindow.FindName("ResultPanel");
+            StackPanel ResultPanel = (StackPanel)ResultPanelBorder.Child;
 
+            ResultPanel.Children.Insert(ResultPanel.Children.Count - 1, _averageDamageOverlay);
+            ResultPanel.Children.Insert(ResultPanel.Children.Count - 1, _medianDamageOverlay);
         }
 
         public void UnmountOverlay()
         {
-            
+            Border ResultPanelBorder = (Border)Core.OverlayWindow.FindName("ResultPanel");
+            StackPanel ResultPanel = (StackPanel)ResultPanelBorder.Child;
+
+            ResultPanel.Children.Remove(_averageDamageOverlay);
+            ResultPanel.Children.Remove(_medianDamageOverlay);
         }
 
         public void OnUnload()

@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainHandler.cs" />
-    <Compile Include="BannedTribeOverlay.xaml.cs">
+    <Compile Include="Overlays\BannedTribeOverlay.xaml.cs">
       <DependentUpon>BannedTribeOverlay.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPlugin.cs" />
-    <Compile Include="MainOverlay.xaml.cs">
+    <Compile Include="Overlays\MainOverlay.xaml.cs">
       <DependentUpon>MainOverlay.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
@@ -59,20 +59,20 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SettingsWindow.xaml.cs">
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="BannedTribeOverlay.xaml">
+    <Page Include="Overlays\BannedTribeOverlay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainOverlay.xaml">
+    <Page Include="Overlays\MainOverlay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SettingsWindow.xaml">
+    <Page Include="Windows\SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

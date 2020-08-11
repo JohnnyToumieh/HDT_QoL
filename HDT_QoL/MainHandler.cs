@@ -90,8 +90,8 @@ namespace HDT_QoL
         {
             Properties.Settings.Default.OverlayTop = 0;
             Properties.Settings.Default.OverlayLeft = 0;
-            Properties.Settings.Default.OverlayScale = 100;
             Properties.Settings.Default.OverlayOpacity = 100;
+            Overlay.ApplyAutoScaling();
             Canvas.SetTop(Overlay, 0);
             Canvas.SetLeft(Overlay, 0);
         }

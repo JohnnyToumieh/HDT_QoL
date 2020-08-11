@@ -13,7 +13,7 @@ namespace HDT_QoL
     public partial class MainOverlay : UserControl
     {
         private OverlayElementBehavior _bgsTopBar2Behavior;
-        public double AutoScaling { get; set; } = 1;
+        public double AutoScaling { get; set; } = Properties.Settings.Default.OverlayScale / 100;
         public double OverlayHeight = 0;
 
         public MainOverlay()
@@ -22,8 +22,6 @@ namespace HDT_QoL
 
             _bgsTopBar2Behavior = new OverlayElementBehavior(BgsTopBar2)
             {
-                GetLeft = () => 0,
-                GetTop = () => 0,
                 GetScaling = () => AutoScaling,
                 AnchorSide = Side.Top,
                 EntranceAnimation = AnimationType.Slide,
@@ -37,6 +35,8 @@ namespace HDT_QoL
             {
                 OverlayHeight = Core.OverlayWindow.Height;
                 AutoScaling = Math.Max(0.8, Math.Min(1.3, OverlayHeight / 1080));
+
+                Properties.Settings.Default.OverlayScale = AutoScaling * 100;
 
                 _bgsTopBar2Behavior.UpdateScaling();
                 _bgsTopBar2Behavior.UpdatePosition();

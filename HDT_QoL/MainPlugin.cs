@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Controls;
 
@@ -21,7 +22,7 @@ namespace HDT_QoL
 
         public string Author => "Lesterberne";
 
-        public Version Version => new Version(0, 0, 5);
+        public Version Version => new Version(0, 0, 6);
 
         public MenuItem MenuItem => CreateMenu();
 
@@ -58,6 +59,8 @@ namespace HDT_QoL
             GameEvents.OnGameStart.Add(MainHandler.GameStart);
             GameEvents.OnGameEnd.Add(MainHandler.GameEnd);
             GameEvents.OnTurnStart.Add(MainHandler.TurnStart);
+
+            Core.OverlayWindow.SizeChanged += new SizeChangedEventHandler(MainHandler.HandleSizeChangeEvent);
 
             Properties.Settings.Default.PropertyChanged += SettingsChanged;
             SettingsChanged(null, null);

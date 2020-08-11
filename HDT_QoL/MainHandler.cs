@@ -57,6 +57,11 @@ namespace HDT_QoL
                 IsMissingTribeRetrieved = RetrieveMissingTribe();
             }
 
+            HandleSizeChangeEvent(null, null);
+        }
+
+        internal static void HandleSizeChangeEvent(object sender, SizeChangedEventArgs e)
+        {
             if (IsScaleWithWindowEnabled)
             {
                 Overlay.ApplyAutoScaling();

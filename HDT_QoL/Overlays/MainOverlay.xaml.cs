@@ -22,7 +22,7 @@ namespace HDT_QoL
 
             _bgsTopBar2Behavior = new OverlayElementBehavior(BgsTopBar2)
             {
-                GetRight = () => 0,
+                GetLeft = () => 0,
                 GetTop = () => 0,
                 GetScaling = () => AutoScaling,
                 AnchorSide = Side.Top,

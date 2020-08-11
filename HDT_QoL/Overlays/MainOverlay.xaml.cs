@@ -3,6 +3,7 @@ using System.Windows.Controls;
 
 using Hearthstone_Deck_Tracker.Utility;
 using Hearthstone_Deck_Tracker.Windows;
+using Hearthstone_Deck_Tracker.API;
 
 namespace HDT_QoL
 {
@@ -13,6 +14,7 @@ namespace HDT_QoL
     {
         private OverlayElementBehavior _bgsTopBar2Behavior;
         public double AutoScaling { get; set; } = 1;
+        public double OverlayHeight = 0;
 
         public MainOverlay()
         {
@@ -31,10 +33,14 @@ namespace HDT_QoL
 
         public void ApplyAutoScaling()
         {
-            AutoScaling = Math.Max(0.8, Math.Min(1.3, System.Windows.SystemParameters.PrimaryScreenHeight / 1080));
+            if (OverlayHeight != Core.OverlayWindow.Height)
+            {
+                OverlayHeight = Core.OverlayWindow.Height;
+                AutoScaling = Math.Max(0.8, Math.Min(1.3, OverlayHeight / 1080));
 
-            _bgsTopBar2Behavior.UpdateScaling();
-            _bgsTopBar2Behavior.UpdatePosition();
+                _bgsTopBar2Behavior.UpdateScaling();
+                _bgsTopBar2Behavior.UpdatePosition();
+            }
         }
     }
 }

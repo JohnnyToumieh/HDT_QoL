@@ -12,14 +12,15 @@ namespace HDT_QoL
         public SettingsWindow()
         {
             InitializeComponent();
+            Properties.Settings.Default.PropertyChanged += (sender, e) => Properties.Settings.Default.Save();
         }
 
         private void BtnUnlockOverlay_Click(object sender, RoutedEventArgs e)
         {
-            BtnUnlockOverlay.Content = MainHandler.Input.Toggle() ? "Lock Overlay" : "Unlock Overlay";
+            BtnUnlockOverlay.Content = MainHandler.Input.Toggle() ? "Lock All Overlays" : "Unlock All Overlays";
         }
 
-        private void BtnResetOverlay_Click(object sender, RoutedEventArgs e)
+        private void BtnResetBannedTribeOverlay_Click(object sender, RoutedEventArgs e)
         {
             MainHandler.ResetOverlayPosition();
         }
@@ -33,6 +34,20 @@ namespace HDT_QoL
             else
             {
                 MainHandler.IsBannedTribeEnabled = false;
+            }
+        }
+
+        private void ToggleScaleWithWindow(object sender, RoutedEventArgs e)
+        {
+            if (CheckboxEnableScaleWithWindow.IsChecked == true)
+            {
+                SliderOverlayScale.IsEnabled = false;
+                MainHandler.IsScaleWithWindowEnabled = true;
+            }
+            else
+            {
+                SliderOverlayScale.IsEnabled = true;
+                MainHandler.IsScaleWithWindowEnabled = false;
             }
         }
     }

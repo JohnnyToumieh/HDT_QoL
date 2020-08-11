@@ -7,6 +7,7 @@ using static System.Windows.Visibility;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Enums;
+using System.Threading.Tasks;
 
 namespace HDT_QoL
 {
@@ -37,6 +38,7 @@ namespace HDT_QoL
         public static bool IsBattlegroundsMode;
         public static bool IsMissingTribeRetrieved;
         public static bool _isBannedTribeEnabled = Properties.Settings.Default.IsBannedTribeEnabled;
+        public static bool IsScaleWithWindowEnabled = Properties.Settings.Default.IsScaleWithWindowEnabled;
 
         public static InputManager Input;
 
@@ -55,7 +57,10 @@ namespace HDT_QoL
                 IsMissingTribeRetrieved = RetrieveMissingTribe();
             }
 
-            Overlay.ApplyAutoScaling();
+            if (IsScaleWithWindowEnabled)
+            {
+                Overlay.ApplyAutoScaling();
+            }
         }
 
         internal static void GameEnd()
@@ -80,8 +85,10 @@ namespace HDT_QoL
         {
             Properties.Settings.Default.OverlayTop = 0;
             Properties.Settings.Default.OverlayLeft = 0;
+            Properties.Settings.Default.OverlayScale = 100;
+            Properties.Settings.Default.OverlayOpacity = 100;
             Canvas.SetTop(Overlay, 0);
-            Canvas.SetRight(Overlay, 0);
+            Canvas.SetLeft(Overlay, 0);
         }
 
         internal static void SetBannedTribeOverlay(string missingTribe)

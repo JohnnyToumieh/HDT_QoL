@@ -3,22 +3,49 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:props="clr-namespace:HDT_QoL.Properties"
-        Title="HDT QoL Settings" Height="200" Width="250"
+        Title="HDT QoL Settings" Height="330" Width="270"
         BorderThickness="1">
     <StackPanel Margin="15">
+        <StackPanel.Resources>
+            <Style x:Key="SliderStyle" TargetType="DockPanel">
+                <Setter Property="Margin" Value="10,0"/>
+            </Style>
+        </StackPanel.Resources>
         <Border BorderThickness="0,0,0,1" Margin="0,0,0,10">
             <TextBlock FontWeight="Bold" FontSize="16">OPTIONS</TextBlock>
         </Border>
-        <Button Name="BtnUnlockOverlay" Margin="0,0,0,8" Width="150" Content="Unlock Overlay" Click="BtnUnlockOverlay_Click" />
-        <Button Name="BtnResetOverlay" Width="150" Content="Reset Overlay" Click="BtnResetOverlay_Click" />
-        <Border BorderThickness="0,1,0,0" Margin="0,8,0,8" Padding="4,4,4,0">
+        <Button Name="BtnUnlockOverlay" Margin="0,0,0,8" Width="150" 
+                Content="Unlock All Overlays" Click="BtnUnlockOverlay_Click"
+                ToolTip="NOTE: There is a bug right now where hovering over heroes is laggy when the overlay is unlocked." />
+
+        <Border BorderThickness="0,0,0,1" Margin="0,20,0,10">
+            <TextBlock FontWeight="Bold" FontSize="14">Banned Tribe</TextBlock>
+        </Border>
+        <Button Name="BtnResetBannedTribeOverlay" Margin="0,0,0,8" Width="150" Content="Reset Overlay" Click="BtnResetBannedTribeOverlay_Click" />
+        <DockPanel Style="{StaticResource SliderStyle}">
+            <Slider x:Name="SliderOverlayOpacity" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
+				Value="{Binding OverlayOpacity, Source={x:Static props:Settings.Default}}"/>
+            <Label Content="Opacity" VerticalAlignment="Center" DockPanel.Dock="Left" />
+        </DockPanel>
+        <DockPanel Style="{StaticResource SliderStyle}">
+            <Slider x:Name="SliderOverlayScale" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
+				Value="{Binding OverlayScale, Source={x:Static props:Settings.Default}}"/>
+            <Label Content="Scale" VerticalAlignment="Center" DockPanel.Dock="Left" />
+        </DockPanel>
+        <Border BorderThickness="0,1,0,0" Margin="0,0,0,8" Padding="4,4,4,0">
             <StackPanel>
-                <CheckBox x:Name="CheckboxEnableBannedTribe" Content="Show banned tribe"
+                <CheckBox x:Name="CheckboxEnableBannedTribe" Content="Show overlay"
                         Checked="ToggleBannedTribe" Unchecked="ToggleBannedTribe"
                         HorizontalAlignment="Left" Margin="0,4,0,8"
                         VerticalAlignment="Top"
                         ToolTip="Enables the banned tribe overlay." 
                         IsChecked="{Binding IsBannedTribeEnabled, IsAsync=True, Source={x:Static props:Settings.Default}}" />
+                <CheckBox x:Name="CheckboxEnableScaleWithWindow" Content="Scale with window"
+                        Checked="ToggleScaleWithWindow" Unchecked="ToggleScaleWithWindow"
+                        HorizontalAlignment="Left" Margin="0,4,0,8"
+                        VerticalAlignment="Top"
+                        ToolTip="Enables scaling with window. DISABLE THIS IF YOU ARE USING THE SCALE SLIDER." 
+                        IsChecked="{Binding IsScaleWithWindowEnabled, IsAsync=True, Source={x:Static props:Settings.Default}}" />
             </StackPanel>
         </Border>
     </StackPanel>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Media;
 using System.Windows.Controls;
 
 using Hearthstone_Deck_Tracker.Plugins;
@@ -57,6 +58,15 @@ namespace HDT_QoL
             GameEvents.OnGameStart.Add(MainHandler.GameStart);
             GameEvents.OnGameEnd.Add(MainHandler.GameEnd);
             GameEvents.OnTurnStart.Add(MainHandler.TurnStart);
+
+            Properties.Settings.Default.PropertyChanged += SettingsChanged;
+            SettingsChanged(null, null);
+        }
+
+        private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            _overlay.RenderTransform = new ScaleTransform(Properties.Settings.Default.OverlayScale / 100, Properties.Settings.Default.OverlayScale / 100);
+            _overlay.Opacity = Properties.Settings.Default.OverlayOpacity / 100;
         }
 
         public void MountOverlay()
@@ -71,6 +81,8 @@ namespace HDT_QoL
 
         public void OnUnload()
         {
+            Properties.Settings.Default.Save();
+
             Core.OverlayCanvas.Children.Remove(_overlay);
             _inputManager.Dispose();
         }

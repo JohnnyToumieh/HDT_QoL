@@ -12,6 +12,9 @@ namespace HDT_QoL
         private User32.MouseInput _mouseInput;
         private MainOverlay _overlay;
 
+        private Point mousePos0;
+        private Point overlayPos0;
+
         private String _selected;
 
         public InputManager(MainOverlay overlay)
@@ -42,8 +45,10 @@ namespace HDT_QoL
         private void MouseInputOnLmbDown(object sender, EventArgs eventArgs)
         {
             var pos = User32.GetMousePos();
-            var _mousePos = new Point(pos.X, pos.Y);
-            if (PointInsideControl(_mousePos, _overlay))
+            mousePos0 = new Point(pos.X, pos.Y);
+            overlayPos0 = new Point(Properties.Settings.Default.OverlayLeft, Properties.Settings.Default.OverlayTop);
+
+            if (PointInsideControl(mousePos0, _overlay))
             {
                 _selected = "overlay";
             }
@@ -52,11 +57,11 @@ namespace HDT_QoL
         private void MouseInputOnLmbUp(object sender, EventArgs eventArgs)
         {
             var pos = User32.GetMousePos();
-            var p = Core.OverlayCanvas.PointFromScreen(new Point(pos.X, pos.Y));
+
             if (_selected == "overlay")
             {
-                Properties.Settings.Default.OverlayTop = p.Y;
-                Properties.Settings.Default.OverlayLeft = p.X;
+                Properties.Settings.Default.OverlayTop = overlayPos0.Y + (pos.Y - mousePos0.Y);
+                Properties.Settings.Default.OverlayLeft = overlayPos0.X + (pos.X - mousePos0.X);
             }
 
             _selected = null;
@@ -70,11 +75,11 @@ namespace HDT_QoL
             }
 
             var pos = User32.GetMousePos();
-            var p = Core.OverlayCanvas.PointFromScreen(new Point(pos.X, pos.Y));
+
             if (_selected == "overlay")
             {
-                Canvas.SetTop(_overlay, p.Y);
-                Canvas.SetLeft(_overlay, p.X);
+                Canvas.SetTop(_overlay, overlayPos0.Y + (pos.Y - mousePos0.Y));
+                Canvas.SetLeft(_overlay, overlayPos0.X + (pos.X - mousePos0.X));
             }
         }
 

@@ -32,8 +32,6 @@ namespace HDT_QoL.Properties {
             }
             set {
                 this["IsBannedTribeEnabled"] = value;
-                Settings.Default.Save();
-                Settings.Default.Reload();
             }
         }
         
@@ -46,8 +44,6 @@ namespace HDT_QoL.Properties {
             }
             set {
                 this["OverlayTop"] = value;
-                Settings.Default.Save();
-                Settings.Default.Reload();
             }
         }
         
@@ -60,8 +56,42 @@ namespace HDT_QoL.Properties {
             }
             set {
                 this["OverlayLeft"] = value;
-                Settings.Default.Save();
-                Settings.Default.Reload();
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public double OverlayScale {
+            get {
+                return ((double)(this["OverlayScale"]));
+            }
+            set {
+                this["OverlayScale"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public double OverlayOpacity {
+            get {
+                return ((double)(this["OverlayOpacity"]));
+            }
+            set {
+                this["OverlayOpacity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsScaleWithWindowEnabled {
+            get {
+                return ((bool)(this["IsScaleWithWindowEnabled"]));
+            }
+            set {
+                this["IsScaleWithWindowEnabled"] = value;
             }
         }
     }

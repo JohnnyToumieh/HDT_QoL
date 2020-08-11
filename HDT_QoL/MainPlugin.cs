@@ -11,7 +11,6 @@ namespace HDT_QoL
     public class MainPlugin : IPlugin
     {
         private MainOverlay _overlay;
-        private SettingsWindow _settingWindow;
         private InputManager _inputManager;
 
         public string Name => "HDT_QoL";
@@ -24,25 +23,9 @@ namespace HDT_QoL
 
         public Version Version => new Version(0, 0, 8);
 
-        public MenuItem MenuItem => CreateMenu();
+        public MenuItem MenuItem => null;
 
-        private MenuItem CreateMenu()
-        {
-            MenuItem menu = new MenuItem { Header = "HDT_QoL Settings" };
-
-            menu.Click += (sender, args) =>
-            {
-                OnButtonPress();
-            };
-
-            return menu;
-        }
-
-        public void OnButtonPress()
-        {
-            _settingWindow = new SettingsWindow();
-            _settingWindow.Show();
-        }
+        public void OnButtonPress() => SettingsWindow.Flyout.IsOpen = true;
 
         public void OnLoad()
         {

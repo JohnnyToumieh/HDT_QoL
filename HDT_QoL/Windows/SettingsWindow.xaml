@@ -1,14 +1,22 @@
-﻿<controls:MetroWindow x:Class="HDT_QoL.SettingsWindow"
+﻿<ScrollViewer x:Class="HDT_QoL.SettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:props="clr-namespace:HDT_QoL.Properties"
-        Title="HDT QoL Settings" Height="380" Width="270"
-        BorderThickness="1">
-    <StackPanel Margin="15">
+        BorderThickness="1" VerticalScrollBarVisibility="Auto">
+    <StackPanel Margin="15" Width="250">
         <StackPanel.Resources>
+            <Style x:Key="ToggleStyle" TargetType="controls:ToggleSwitch">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="OnLabel" Value="Enabled"/>
+                <Setter Property="OffLabel" Value="Disabled"/>
+                <Setter Property="Margin" Value="10,0"/>
+            </Style>
             <Style x:Key="SliderStyle" TargetType="DockPanel">
                 <Setter Property="Margin" Value="10,0"/>
+            </Style>
+            <Style x:Key="SubToggleStyle" TargetType="controls:ToggleSwitch" BasedOn="{StaticResource ToggleStyle}">
+                <Setter Property="FontSize" Value="12"/>
             </Style>
         </StackPanel.Resources>
         <Border BorderThickness="0,0,0,1" Margin="0,0,0,10">
@@ -32,33 +40,25 @@
 				Value="{Binding OverlayScale, Source={x:Static props:Settings.Default}}"/>
             <Label Content="Scale" VerticalAlignment="Center" DockPanel.Dock="Left" />
         </DockPanel>
-        <Border BorderThickness="0,1,0,0" Margin="0,0,0,8" Padding="4,4,4,0">
-            <StackPanel>
-                <CheckBox x:Name="CheckboxEnableBannedTribe" Content="Show overlay"
-                        Checked="ToggleBannedTribe" Unchecked="ToggleBannedTribe"
-                        HorizontalAlignment="Left" Margin="0,4,0,4"
-                        VerticalAlignment="Top"
-                        ToolTip="Enables the banned tribe overlay." 
-                        IsChecked="{Binding IsBannedTribeEnabled, IsAsync=True, Source={x:Static props:Settings.Default}}" />
-                <CheckBox x:Name="CheckboxEnableScaleWithWindow" Content="Scale with window"
-                        Checked="ToggleScaleWithWindow" Unchecked="ToggleScaleWithWindow"
-                        HorizontalAlignment="Left" Margin="0,4,0,4"
-                        VerticalAlignment="Top"
-                        ToolTip="Enables scaling with window. DISABLE THIS IF YOU ARE USING THE SCALE SLIDER." 
-                        IsChecked="{Binding IsScaleWithWindowEnabled, IsAsync=True, Source={x:Static props:Settings.Default}}" />
-                <CheckBox x:Name="CheckboxEnableBorder" Content="Enable border"
-                        Checked="ToggleEnableBorder" Unchecked="ToggleEnableBorder"
-                        HorizontalAlignment="Left" Margin="0,4,0,4"
-                        VerticalAlignment="Top"
-                        ToolTip="Enables the colored border during hero selection." 
-                        IsChecked="{Binding IsBorderEnabled, IsAsync=True, Source={x:Static props:Settings.Default}}" />
-                <CheckBox x:Name="CheckboxEnableColors" Content="Enable colors"
-                        Checked="ToggleEnableColors" Unchecked="ToggleEnableColors"
-                        HorizontalAlignment="Left" Margin="0,4,0,4"
-                        VerticalAlignment="Top"
-                        ToolTip="Enables overlay colors." 
-                        IsChecked="{Binding IsColorsEnabled, IsAsync=True, Source={x:Static props:Settings.Default}}" />
-            </StackPanel>
-        </Border>
+        <controls:ToggleSwitch x:Name="CheckboxEnableBannedTribe" Content="Show overlay"
+                               Checked="ToggleBannedTribe" Unchecked="ToggleBannedTribe"
+                               ToolTip="Enables the banned tribe overlay."
+                               IsChecked="{Binding IsBannedTribeEnabled, Source={x:Static props:Settings.Default}}"
+                               Style="{StaticResource SubToggleStyle}"/>
+        <controls:ToggleSwitch x:Name="CheckboxEnableScaleWithWindow" Content="Scale with window"
+                               Checked="ToggleScaleWithWindow" Unchecked="ToggleScaleWithWindow"
+                               ToolTip="Enables scaling with window. DISABLE THIS IF YOU ARE USING THE SCALE SLIDER."
+                               IsChecked="{Binding IsScaleWithWindowEnabled, Source={x:Static props:Settings.Default}}"
+                               Style="{StaticResource SubToggleStyle}"/>
+        <controls:ToggleSwitch x:Name="CheckboxEnableBorder" Content="Enable border"
+                               Checked="ToggleEnableBorder" Unchecked="ToggleEnableBorder"
+                               ToolTip="Enables the colored border during hero selection."
+                               IsChecked="{Binding IsBorderEnabled, Source={x:Static props:Settings.Default}}"
+                               Style="{StaticResource SubToggleStyle}"/>
+        <controls:ToggleSwitch x:Name="CheckboxEnableColors" Content="Enable colors"
+                               Checked="ToggleEnableColors" Unchecked="ToggleEnableColors"
+                               ToolTip="Enables overlay colors."
+                               IsChecked="{Binding IsColorsEnabled, Source={x:Static props:Settings.Default}}"
+                               Style="{StaticResource SubToggleStyle}"/>
     </StackPanel>
-</controls:MetroWindow>
+</ScrollViewer>

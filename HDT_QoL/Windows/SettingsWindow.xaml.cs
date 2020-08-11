@@ -1,14 +1,42 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 using MahApps.Metro.Controls;
+
+using Hearthstone_Deck_Tracker;
 
 namespace HDT_QoL
 {
     /// <summary>
     /// Interaction logic for SettingsView.xaml
     /// </summary>
-    public partial class SettingsWindow : MetroWindow
+    public partial class SettingsWindow : ScrollViewer
     {
+        private static Flyout _flyout;
+
+        public static Flyout Flyout
+        {
+            get
+            {
+                if (_flyout == null)
+                {
+                    _flyout = CreateSettingsFlyout();
+                }
+                return _flyout;
+            }
+        }
+
+        private static Flyout CreateSettingsFlyout()
+        {
+            var settings = new Flyout();
+            settings.Position = Position.Left;
+            Panel.SetZIndex(settings, 100);
+            settings.Header = "HDT QoL Settings";
+            settings.Content = new SettingsWindow();
+            Core.MainWindow.Flyouts.Items.Add(settings);
+            return settings;
+        }
+
         public SettingsWindow()
         {
             InitializeComponent();

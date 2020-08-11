@@ -13,7 +13,7 @@ https://github.com/JohnnyToumieh/Hearthstone-Deck-Tracker
 
 ## How to Install
 
-1. [Click here]([https://github.com/JohnnyToumieh/HDT_QoL/releases](https://github.com/JohnnyToumieh/HDT_QoL/releases)) to download the latest version from the [releases page]([https://github.com/JohnnyToumieh/HDT_QoL/releases](https://github.com/JohnnyToumieh/HDT_QoL/releases)).
+1. [Click here](https://github.com/JohnnyToumieh/HDT_QoL/releases) to download the latest version from the [releases page](https://github.com/JohnnyToumieh/HDT_QoL/releases).
 2.  Unblock the zip file before unzipping, by  [right-clicking it and choosing properties](http://blogs.msdn.com/b/delay/p/unblockingdownloadedfile.aspx):  
 [![Unblock](https://i.imgur.com/3t618Rz.png?raw=true)](https://i.imgur.com/3t618Rz.png?raw=true)
 3.  Make sure you remove any old versions of HDT_QoL directory in the plugins directory of Hearthstone Deck Tracker completely, before upgrading versions.
@@ -40,5 +40,5 @@ Discord: Lesterberne#3878
 With limited knowledge of C# and coding a plugin, I had to rely on checking out other plugins to take inspiration.
 Here are some of these plugins:
 
-[Graveyard]([https://github.com/RedHatter/Graveyard](https://github.com/RedHatter/Graveyard)) by [RedHatter]([https://github.com/RedHatter](https://github.com/RedHatter))
-[DrawPool]([https://github.com/VeXHarbinger/DrawPool](https://github.com/VeXHarbinger/DrawPool)) by [VeXHarbinger]([https://github.com/VeXHarbinger](https://github.com/VeXHarbinger))
+[Graveyard](https://github.com/RedHatter/Graveyard) by [RedHatter](https://github.com/RedHatter)
+[DrawPool](https://github.com/VeXHarbinger/DrawPool) by [VeXHarbinger](https://github.com/VeXHarbinger)

@@ -2,12 +2,12 @@
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using static System.Windows.Visibility;
 
 using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Enums;
-using System.Threading.Tasks;
 
 namespace HDT_QoL
 {
@@ -33,12 +33,49 @@ namespace HDT_QoL
             }
         }
 
+        public static bool IsBorderEnabled
+        {
+            get { return _isBorderEnabled; }
+            set
+            {
+                _isBorderEnabled = value;
+                if (_isBorderEnabled)
+                {
+                    EnableBorder();
+                }
+                else
+                {
+                    DisableBorder();
+                }
+            }
+        }
+
+        public static bool IsColorsEnabled
+        {
+            get { return _isColorsEnabled; }
+            set
+            {
+                _isColorsEnabled = value;
+                if (_isColorsEnabled)
+                {
+                    EnableColors();
+                }
+                else
+                {
+                    DisableColors();
+                }
+            }
+        }
+
         public static MainOverlay Overlay;
         public static Guid GameID;
         public static bool IsBattlegroundsMode;
         public static bool IsMissingTribeRetrieved;
         public static bool _isBannedTribeEnabled = Properties.Settings.Default.IsBannedTribeEnabled;
         public static bool IsScaleWithWindowEnabled = Properties.Settings.Default.IsScaleWithWindowEnabled;
+        public static bool _isBorderEnabled = Properties.Settings.Default.IsBorderEnabled;
+        public static bool _isColorsEnabled = Properties.Settings.Default.IsColorsEnabled;
+        public static int TurnNumber;
 
         public static InputManager Input;
 
@@ -47,6 +84,7 @@ namespace HDT_QoL
             GameID = Core.Game.CurrentGameStats.GameId;
             IsBattlegroundsMode = Core.Game.CurrentGameMode == GameMode.Battlegrounds;
             IsMissingTribeRetrieved = false;
+            TurnNumber = 0;
 
             int waitTime = 30000;
 
@@ -77,9 +115,11 @@ namespace HDT_QoL
 
         internal static void TurnStart(ActivePlayer player)
         {
+            TurnNumber = Core.Game.GetTurnNumber();
+
             if (IsBattlegroundsMode)
             {
-                if (Core.Game.GetTurnNumber() == 1)
+                if (TurnNumber == 1)
                 {
                     Overlay.BannedTribeBorder.BorderThickness = new Thickness(0);
                 }
@@ -99,10 +139,25 @@ namespace HDT_QoL
         internal static void SetBannedTribeOverlay(string missingTribe)
         {
             Overlay.BannedTribeOverlay.UpdateTribe(missingTribe);
-            Overlay.BannedTribeBorder.BorderThickness = new Thickness(5);
+
             if (IsBannedTribeEnabled)
             {
                 EnableBannedTribeOverlay();
+            }
+
+            if (IsBorderEnabled)
+            {
+                Overlay.BannedTribeBorder.BorderThickness = new Thickness(5);
+            }
+
+
+            if (IsColorsEnabled)
+            {
+                EnableColors();
+            }
+            else
+            {
+                DisableColors();
             }
         }
 
@@ -110,6 +165,7 @@ namespace HDT_QoL
         {
             DisableBannedTribeOverlay();
             Overlay.BannedTribeOverlay.UpdateTribe("N/A");
+            DisableColors();
         }
 
         internal static void EnableBannedTribeOverlay()
@@ -122,9 +178,33 @@ namespace HDT_QoL
             Overlay.BannedTribeBorder.Visibility = Collapsed;
         }
 
+        internal static void EnableBorder()
+        {
+            if (TurnNumber == 0)
+            {
+                Overlay.BannedTribeBorder.BorderThickness = new Thickness(5);
+            }
+        }
+
+        internal static void DisableBorder()
+        {
+            Overlay.BannedTribeBorder.BorderThickness = new Thickness(0);
+        }
+
+        internal static void EnableColors()
+        {
+            Overlay.BannedTribeOverlay.BorderBannedTribeText.Background = GetTribeColor(GetMissingTribe(GameID));
+        }
+
+        internal static void DisableColors()
+        {
+            Overlay.BannedTribeOverlay.BorderBannedTribeText.Background = (Brush)(new BrushConverter().ConvertFrom("#23272A"));
+        }
+
         internal static bool RetrieveMissingTribe()
         {
-            string missingTribe = GetTribeName(GetMissingTribe(GameID));
+            int tribeID = GetMissingTribe(GameID);
+            string missingTribe = GetTribeName(tribeID);
 
             if (missingTribe != null)
             {
@@ -164,6 +244,27 @@ namespace HDT_QoL
                     return "Pirates";
                 case 24:
                     return "Dragons";
+                default:
+                    return null;
+            }
+        }
+
+        internal static Brush GetTribeColor(int tribeID)
+        {
+            switch (tribeID)
+            {
+                case 14:
+                    return (Brush)(new BrushConverter().ConvertFrom("#FFFF99")); // Light Yellow 2 (Yellow) - Murlocs
+                case 15:
+                    return (Brush)(new BrushConverter().ConvertFrom("#800080")); // Purple - Demons
+                case 17:
+                    return (Brush)(new BrushConverter().ConvertFrom("#808080")); // Grey - Mechs
+                case 20:
+                    return (Brush)(new BrushConverter().ConvertFrom("#228B22")); // Forest Green (Green) - Beasts
+                case 23:
+                    return (Brush)(new BrushConverter().ConvertFrom("#AE0C00")); // Mordant Red (Red) - Pirates
+                case 24:
+                    return (Brush)(new BrushConverter().ConvertFrom("#0198E1")); // Topaz (Blue) - Dragons
                 default:
                     return null;
             }

@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Name="BgsTopBar2" Orientation="Horizontal">
-        <Border x:Name="BannedTribeBorder" Visibility="Collapsed" BorderBrush="#800000" BorderThickness="5" CornerRadius="2">
+        <Border x:Name="BannedTribeBorder" Visibility="Collapsed" BorderBrush="#FFFFFF" BorderThickness="5" CornerRadius="2">
             <overlay:BannedTribeOverlay x:Name="BannedTribeOverlay" Height="55" VerticalAlignment="Top" />
         </Border>
         <overlay2:TurnCounter x:Name="TurnCounter" Visibility="Hidden" Margin="0,0,2,0"  Height="55" VerticalAlignment="Top" />

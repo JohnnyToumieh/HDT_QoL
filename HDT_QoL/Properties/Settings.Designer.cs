@@ -94,5 +94,29 @@ namespace HDT_QoL.Properties {
                 this["IsScaleWithWindowEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsBorderEnabled {
+            get {
+                return ((bool)(this["IsBorderEnabled"]));
+            }
+            set {
+                this["IsBorderEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsColorsEnabled {
+            get {
+                return ((bool)(this["IsColorsEnabled"]));
+            }
+            set {
+                this["IsColorsEnabled"] = value;
+            }
+        }
     }
 }

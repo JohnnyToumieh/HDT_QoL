@@ -50,5 +50,29 @@ namespace HDT_QoL
                 MainHandler.IsScaleWithWindowEnabled = false;
             }
         }
+
+        private void ToggleEnableBorder(object sender, RoutedEventArgs e)
+        {
+            if (CheckboxEnableBorder.IsChecked == true)
+            {
+                MainHandler.IsBorderEnabled = true;
+            }
+            else
+            {
+                MainHandler.IsBorderEnabled = false;
+            }
+        }
+
+        private void ToggleEnableColors(object sender, RoutedEventArgs e)
+        {
+            if (CheckboxEnableColors.IsChecked == true)
+            {
+                MainHandler.IsColorsEnabled = true;
+            }
+            else
+            {
+                MainHandler.IsColorsEnabled = false;
+            }
+        }
     }
 }

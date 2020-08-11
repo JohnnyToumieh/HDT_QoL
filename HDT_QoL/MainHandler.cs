@@ -68,7 +68,7 @@ namespace HDT_QoL
         }
 
         public static MainOverlay Overlay;
-        public static Guid GameID;
+        public static Guid GameID = Guid.Empty;
         public static bool IsBattlegroundsMode;
         public static bool IsMissingTribeRetrieved;
         public static bool _isBannedTribeEnabled = Properties.Settings.Default.IsBannedTribeEnabled;
@@ -193,7 +193,10 @@ namespace HDT_QoL
 
         internal static void EnableColors()
         {
-            Overlay.BannedTribeOverlay.BorderBannedTribeText.Background = GetTribeColor(GetMissingTribe(GameID));
+            if (GameID != Guid.Empty && GetTribeName(GetMissingTribe(GameID)) != null)
+            {
+                Overlay.BannedTribeOverlay.BorderBannedTribeText.Background = GetTribeColor(GetMissingTribe(GameID));
+            }
         }
 
         internal static void DisableColors()
@@ -254,17 +257,17 @@ namespace HDT_QoL
             switch (tribeID)
             {
                 case 14:
-                    return (Brush)(new BrushConverter().ConvertFrom("#FFFF99")); // Light Yellow 2 (Yellow) - Murlocs
+                    return (Brush)(new BrushConverter().ConvertFrom("#A6A608")); // Yellow - Murlocs
                 case 15:
                     return (Brush)(new BrushConverter().ConvertFrom("#800080")); // Purple - Demons
                 case 17:
-                    return (Brush)(new BrushConverter().ConvertFrom("#808080")); // Grey - Mechs
+                    return (Brush)(new BrushConverter().ConvertFrom("#8A8A8A")); // Grey - Mechs
                 case 20:
-                    return (Brush)(new BrushConverter().ConvertFrom("#228B22")); // Forest Green (Green) - Beasts
+                    return (Brush)(new BrushConverter().ConvertFrom("#1D7A1D")); // Green - Beasts
                 case 23:
-                    return (Brush)(new BrushConverter().ConvertFrom("#AE0C00")); // Mordant Red (Red) - Pirates
+                    return (Brush)(new BrushConverter().ConvertFrom("#960A00")); // Red - Pirates
                 case 24:
-                    return (Brush)(new BrushConverter().ConvertFrom("#0198E1")); // Topaz (Blue) - Dragons
+                    return (Brush)(new BrushConverter().ConvertFrom("#0070A6")); // Blue - Dragons
                 default:
                     return null;
             }

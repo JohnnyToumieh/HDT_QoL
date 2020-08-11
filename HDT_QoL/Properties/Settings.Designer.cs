@@ -9,6 +9,8 @@
 //------------------------------------------------------------------------------
 
 namespace HDT_QoL.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
@@ -30,6 +32,34 @@ namespace HDT_QoL.Properties {
             }
             set {
                 this["IsBannedTribeEnabled"] = value;
+                Settings.Default.Save();
+                Settings.Default.Reload();
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double OverlayTop {
+            get {
+                return ((double)(this["OverlayTop"]));
+            }
+            set {
+                this["OverlayTop"] = value;
+                Settings.Default.Save();
+                Settings.Default.Reload();
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double OverlayLeft {
+            get {
+                return ((double)(this["OverlayLeft"]));
+            }
+            set {
+                this["OverlayLeft"] = value;
                 Settings.Default.Save();
                 Settings.Default.Reload();
             }

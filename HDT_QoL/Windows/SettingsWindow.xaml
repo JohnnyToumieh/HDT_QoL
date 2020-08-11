@@ -3,12 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:props="clr-namespace:HDT_QoL.Properties"
-        Title="HDT QoL Settings" Height="140" Width="250"
+        Title="HDT QoL Settings" Height="160" Width="250"
         BorderThickness="1">
     <StackPanel Margin="15">
         <Border BorderThickness="0,0,0,1" Margin="0,0,0,10">
             <TextBlock FontWeight="Bold" FontSize="16">OPTIONS</TextBlock>
         </Border>
+        <Button Name="BtnUnlock" Width="150" Content="Unlock Overlay" Click="BtnUnlock_Click" />
         <Border BorderThickness="0,1,0,0" Margin="0,0,0,8" Padding="4,4,4,0">
             <StackPanel>
                 <CheckBox x:Name="CheckboxEnableBannedTribe" Content="Show banned tribe"

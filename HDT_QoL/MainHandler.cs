@@ -37,6 +37,8 @@ namespace HDT_QoL
         public static bool IsMissingTribeRetrieved;
         public static bool _isBannedTribeEnabled = Properties.Settings.Default.IsBannedTribeEnabled;
 
+        public static InputManager Input;
+
         internal static void GameStart()
         {
             GameID = Core.Game.CurrentGameStats.GameId;

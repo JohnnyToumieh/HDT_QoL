@@ -40,4 +40,5 @@ Discord: Lesterberne#3878
 With limited knowledge of C# and coding a plugin, I had to rely on checking out other plugins to take inspiration.
 Here are some of these plugins:
 
-[Click here]([Graveyard by RedHatter](https://github.com/RedHatter/Graveyard))
+[Click here]([https://github.com/RedHatter/Graveyard](Graveyard)) by [Click here]([https://github.com/RedHatter](RedHatter))
+[Click here]([https://github.com/VeXHarbinger/DrawPool](DrawPool)) by [Click here]([https://github.com/VeXHarbinger](VeXHarbinger))

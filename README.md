@@ -21,6 +21,12 @@ https://github.com/JohnnyToumieh/Hearthstone-Deck-Tracker
 5.  If you've done it correctly, HDT_QoL directory should be inside the Plugins directory. Inside the directory, should be a bunch of files, including a file called HDT_QoL.dll.
 6.  Launch Hearthstone Deck Tracker. Enable the plugin in  `Options -> Tracker -> Plugins`.
 
+## Settings
+
+You can use the plugin's settings to:
+- Disable the Banned Tribe Overlay
+- Reposition the Banned Tribe Overlay
+
 ## Screenshots
 
 ![enter image description here](https://i.imgur.com/eydDAfs.png)
@@ -29,3 +35,9 @@ https://github.com/JohnnyToumieh/Hearthstone-Deck-Tracker
 
 ## Contact
 Discord: Lesterberne#3878
+
+# Credits
+With limited knowledge of C# and coding a plugin, I had to rely on checking out other plugins to take inspiration.
+Here are some of these plugins:
+
+[Click here]([Graveyard by RedHatter](https://github.com/RedHatter/Graveyard))

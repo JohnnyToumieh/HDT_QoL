@@ -24,12 +24,17 @@ https://github.com/JohnnyToumieh/Hearthstone-Deck-Tracker
 ## Settings
 
 You can use the plugin's settings to:
-- Enable/Disable the Banned Tribe Overlay
-- Reposition the Banned Tribe Overlay
-- Change the opacity and scaling of the Banned Tribe Overlay
-- Enable/Disable automatic scaling
 
-![enter image description here](https://i.imgur.com/IX3T2ly.png)
+1. Banned Tribe Overlay
+
+- Disable/Enable the overlay
+- Reposition the overlay
+- Change the opacity and scaling
+- Enable/Disable automatic scaling
+- Enable/Disable the overlay's border
+- Enable/Disable the overlay's color schema
+
+![enter image description here](https://i.imgur.com/cdQbHkz.png)
 
 ## Overlay Screenshots
 

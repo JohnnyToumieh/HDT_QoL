@@ -28,6 +28,7 @@ You can use the plugin's settings to:
 - Reposition the Banned Tribe Overlay
 - Change the opacity and scaling of the Banned Tribe Overlay
 - Enable/Disable automatic scaling
+
 ![enter image description here](https://i.imgur.com/IX3T2ly.png)
 
 ## Overlay Screenshots

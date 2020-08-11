@@ -14,9 +14,14 @@ namespace HDT_QoL
             InitializeComponent();
         }
 
-        private void BtnUnlock_Click(object sender, RoutedEventArgs e)
+        private void BtnUnlockOverlay_Click(object sender, RoutedEventArgs e)
         {
-            BtnUnlock.Content = MainHandler.Input.Toggle() ? "Lock Overlay" : "Unlock Overlay";
+            BtnUnlockOverlay.Content = MainHandler.Input.Toggle() ? "Lock Overlay" : "Unlock Overlay";
+        }
+
+        private void BtnResetOverlay_Click(object sender, RoutedEventArgs e)
+        {
+            MainHandler.ResetOverlayPosition();
         }
 
         private void ToggleBannedTribe(object sender, RoutedEventArgs e)

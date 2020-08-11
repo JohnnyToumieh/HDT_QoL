@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using static System.Windows.Visibility;
 
 using Hearthstone_Deck_Tracker.Hearthstone;
@@ -73,6 +74,14 @@ namespace HDT_QoL
                     Overlay.BannedTribeBorder.BorderThickness = new Thickness(0);
                 }
             }
+        }
+
+        internal static void ResetOverlayPosition()
+        {
+            Properties.Settings.Default.OverlayTop = 0;
+            Properties.Settings.Default.OverlayLeft = 0;
+            Canvas.SetTop(Overlay, 0);
+            Canvas.SetRight(Overlay, 0);
         }
 
         internal static void SetBannedTribeOverlay(string missingTribe)

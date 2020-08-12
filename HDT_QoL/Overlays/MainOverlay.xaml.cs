@@ -14,7 +14,6 @@ namespace HDT_QoL
     {
         private OverlayElementBehavior _bgsTopBar2Behavior;
         public double AutoScaling { get; set; } = Properties.Settings.Default.OverlayScale / 100;
-        public double OverlayHeight = 0;
 
         public MainOverlay()
         {
@@ -31,16 +30,12 @@ namespace HDT_QoL
 
         public void ApplyAutoScaling()
         {
-            if (OverlayHeight != Core.OverlayWindow.Height)
-            {
-                OverlayHeight = Core.OverlayWindow.Height;
-                AutoScaling = Math.Max(0.8, Math.Min(1.3, OverlayHeight / 1080));
+            AutoScaling = Math.Max(0.8, Math.Min(1.3, Core.OverlayWindow.Height / 1080));
 
-                Properties.Settings.Default.OverlayScale = AutoScaling * 100;
+            Properties.Settings.Default.OverlayScale = AutoScaling * 100;
 
-                _bgsTopBar2Behavior.UpdateScaling();
-                _bgsTopBar2Behavior.UpdatePosition();
-            }
+            _bgsTopBar2Behavior.UpdateScaling();
+            _bgsTopBar2Behavior.UpdatePosition();
         }
     }
 }

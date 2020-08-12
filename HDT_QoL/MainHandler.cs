@@ -126,6 +126,11 @@ namespace HDT_QoL
                 IsMissingTribeRetrieved = RetrieveMissingTribe();
             }
 
+            if (waitTime == 0)
+            {
+                ResetBannedTribeOverlay();
+            }
+
             HandleSizeChangeEvent(null, null);
         }
 
@@ -157,7 +162,7 @@ namespace HDT_QoL
             }
         }
 
-        internal static void ResetOverlayPosition()
+        internal static void ResetOverlay()
         {
             Properties.Settings.Default.OverlayTop = 0;
             Properties.Settings.Default.OverlayLeft = 0;
@@ -252,6 +257,9 @@ namespace HDT_QoL
 
         internal static bool RetrieveMissingTribe()
         {
+            if (GameID != Guid.Empty)
+                return false;
+
             int tribeID = GetMissingTribe(GameID);
             string missingTribe = GetTribeName(tribeID);
 

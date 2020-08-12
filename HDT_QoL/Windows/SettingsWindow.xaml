@@ -22,14 +22,19 @@
         <Border BorderThickness="0,0,0,1" Margin="0,0,0,10">
             <TextBlock FontWeight="Bold" FontSize="16">OPTIONS</TextBlock>
         </Border>
-        <Button Name="BtnUnlockOverlay" Margin="0,0,0,8" Width="150" 
+        <Button Name="BtnUnlockOverlay" Margin="0,0,0,8" Width="170" 
                 Content="Unlock All Overlays" Click="BtnUnlockOverlay_Click"
                 ToolTip="NOTE: There is a bug right now where hovering over heroes is laggy when the overlay is unlocked." />
 
         <Border BorderThickness="0,0,0,1" Margin="0,20,0,10">
             <TextBlock FontWeight="Bold" FontSize="14">Banned Tribe</TextBlock>
         </Border>
-        <Button Name="BtnResetBannedTribeOverlay" Margin="0,0,0,8" Width="150" Content="Reset Overlay" Click="BtnResetBannedTribeOverlay_Click" />
+        <Button Name="BtnResetBannedTribeOverlay" Margin="0,0,0,8" Width="170"
+                Content="Reset Overlay" Click="BtnResetBannedTribeOverlay_Click"
+                ToolTip="Resets the overlay position, scale and opacity." />
+        <Button Name="BtnRefreshBannedTribeText" Margin="0,0,0,10" Width="170"
+                Content="Refresh Banned Tribe Text" Click="BtnRefreshBannedTribeText_Click"
+                ToolTip="Refresh the text of the overlay."/>
         <DockPanel Style="{StaticResource SliderStyle}">
             <Slider x:Name="SliderOverlayOpacity" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
 				Value="{Binding OverlayOpacity, Source={x:Static props:Settings.Default}}"/>

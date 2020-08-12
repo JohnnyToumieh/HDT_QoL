@@ -50,7 +50,12 @@ namespace HDT_QoL
 
         private void BtnResetBannedTribeOverlay_Click(object sender, RoutedEventArgs e)
         {
-            MainHandler.ResetOverlayPosition();
+            MainHandler.ResetOverlay();
+        }
+
+        private void BtnRefreshBannedTribeText_Click(object sender, RoutedEventArgs e)
+        {
+            MainHandler.RetrieveMissingTribe();
         }
 
         private void ToggleBannedTribe(object sender, RoutedEventArgs e)

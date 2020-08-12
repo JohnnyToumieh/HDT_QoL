@@ -11,7 +11,5 @@
         <Border x:Name="BannedTribeBorder" Visibility="Collapsed" BorderBrush="#FFFFFF" BorderThickness="5" CornerRadius="2">
             <overlay:BannedTribeOverlay x:Name="BannedTribeOverlay" Height="55" VerticalAlignment="Top" />
         </Border>
-        <overlay2:TurnCounter x:Name="TurnCounter" Visibility="Hidden" Margin="0,0,2,0"  Height="55" VerticalAlignment="Top" />
-        <overlay2:BattlegroundsMinions x:Name="BattlegroundsMinionsPanel" Visibility="Hidden" />
     </StackPanel>
 </UserControl>

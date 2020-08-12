@@ -12,9 +12,16 @@ namespace HDT_QoL
             InitializeComponent();
         }
 
-        internal void UpdateTribe(string bannedTribe)
+        internal void UpdateTribe(string bannedTribe, bool isAlternateTextEnabled)
         {
-            BannedTribeText.Text = string.Format("Banned: {0}", bannedTribe);
+            if (isAlternateTextEnabled)
+            {
+                BannedTribeText.Text = string.Format("Benched: {0}", bannedTribe);
+            }
+            else
+            {
+                BannedTribeText.Text = string.Format("Banned: {0}", bannedTribe);
+            }
         }
     }
 }

@@ -60,5 +60,10 @@
                                ToolTip="Enables overlay colors."
                                IsChecked="{Binding IsColorsEnabled, Source={x:Static props:Settings.Default}}"
                                Style="{StaticResource SubToggleStyle}"/>
+        <controls:ToggleSwitch x:Name="CheckboxEnableAlternateText" Content="Use 'benched'"
+                               Checked="ToggleEnableAlternateText" Unchecked="ToggleEnableAlternateText"
+                               ToolTip="Replace the 'banned' keyword with 'benched'"
+                               IsChecked="{Binding IsAlternateTextEnabled, Source={x:Static props:Settings.Default}}"
+                               Style="{StaticResource SubToggleStyle}"/>
     </StackPanel>
 </ScrollViewer>

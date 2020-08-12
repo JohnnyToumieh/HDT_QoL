@@ -102,5 +102,17 @@ namespace HDT_QoL
                 MainHandler.IsColorsEnabled = false;
             }
         }
+
+        private void ToggleEnableAlternateText(object sender, RoutedEventArgs e)
+        {
+            if (CheckboxEnableAlternateText.IsChecked == true)
+            {
+                MainHandler.IsAlternateTextEnabled = true;
+            }
+            else
+            {
+                MainHandler.IsAlternateTextEnabled = false;
+            }
+        }
     }
 }

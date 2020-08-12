@@ -118,5 +118,17 @@ namespace HDT_QoL.Properties {
                 this["IsColorsEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsAlternateTextEnabled {
+            get {
+                return ((bool)(this["IsAlternateTextEnabled"]));
+            }
+            set {
+                this["IsAlternateTextEnabled"] = value;
+            }
+        }
     }
 }

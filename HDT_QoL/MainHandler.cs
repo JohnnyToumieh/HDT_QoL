@@ -67,6 +67,23 @@ namespace HDT_QoL
             }
         }
 
+        public static bool IsAlternateTextEnabled
+        {
+            get { return _isAlternateTextEnabled; }
+            set
+            {
+                _isAlternateTextEnabled = value;
+                if (_isAlternateTextEnabled)
+                {
+                    EnableAlternateText();
+                }
+                else
+                {
+                    DisableAlternateText();
+                }
+            }
+        }
+
         public static MainOverlay Overlay;
         public static Guid GameID = Guid.Empty;
         public static bool IsBattlegroundsMode;
@@ -75,6 +92,7 @@ namespace HDT_QoL
         public static bool IsScaleWithWindowEnabled = Properties.Settings.Default.IsScaleWithWindowEnabled;
         public static bool _isBorderEnabled = Properties.Settings.Default.IsBorderEnabled;
         public static bool _isColorsEnabled = Properties.Settings.Default.IsColorsEnabled;
+        public static bool _isAlternateTextEnabled = Properties.Settings.Default.IsAlternateTextEnabled;
         public static int TurnNumber;
 
         public static InputManager Input;
@@ -138,7 +156,7 @@ namespace HDT_QoL
 
         internal static void SetBannedTribeOverlay(string missingTribe)
         {
-            Overlay.BannedTribeOverlay.UpdateTribe(missingTribe);
+            Overlay.BannedTribeOverlay.UpdateTribe(missingTribe, IsAlternateTextEnabled);
 
             if (IsBannedTribeEnabled)
             {
@@ -149,7 +167,6 @@ namespace HDT_QoL
             {
                 Overlay.BannedTribeBorder.BorderThickness = new Thickness(5);
             }
-
 
             if (IsColorsEnabled)
             {
@@ -164,7 +181,7 @@ namespace HDT_QoL
         internal static void ResetBannedTribeOverlay()
         {
             DisableBannedTribeOverlay();
-            Overlay.BannedTribeOverlay.UpdateTribe("N/A");
+            Overlay.BannedTribeOverlay.UpdateTribe("N/A", IsAlternateTextEnabled);
             DisableColors();
         }
 
@@ -202,6 +219,22 @@ namespace HDT_QoL
         internal static void DisableColors()
         {
             Overlay.BannedTribeOverlay.BorderBannedTribeText.Background = (Brush)(new BrushConverter().ConvertFrom("#23272A"));
+        }
+
+        internal static void EnableAlternateText()
+        {
+            if (GameID != Guid.Empty && GetTribeName(GetMissingTribe(GameID)) != null)
+            {
+                Overlay.BannedTribeOverlay.UpdateTribe(GetTribeName(GetMissingTribe(GameID)), IsAlternateTextEnabled);
+            }
+        }
+
+        internal static void DisableAlternateText()
+        {
+            if (GameID != Guid.Empty && GetTribeName(GetMissingTribe(GameID)) != null)
+            {
+                Overlay.BannedTribeOverlay.UpdateTribe(GetTribeName(GetMissingTribe(GameID)), IsAlternateTextEnabled);
+            }
         }
 
         internal static bool RetrieveMissingTribe()

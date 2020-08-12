@@ -6,6 +6,6 @@
              xmlns:local="clr-namespace:Hearthstone_Deck_Tracker;assembly=HearthstoneDeckTracker"
              mc:Ignorable="d">
     <Border x:Name="BorderBannedTribeText" BorderBrush="#141617" BorderThickness="1" Background="#23272A" >
-        <local:HearthstoneTextBlock x:Name="BannedTribeText" Text="Banned: N/A" Margin="10,3" Width="170" MaxWidth="170"  TextAlignment="Center" />
+        <local:HearthstoneTextBlock x:Name="BannedTribeText" Text="Banned: N/A" Margin="10,3" Width="180" MaxWidth="180"  TextAlignment="Center" />
     </Border>
 </UserControl>

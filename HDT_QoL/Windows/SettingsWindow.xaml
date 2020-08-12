@@ -37,7 +37,8 @@
         </DockPanel>
         <DockPanel Style="{StaticResource SliderStyle}">
             <Slider x:Name="SliderOverlayScale" VerticalAlignment="Center" DockPanel.Dock="Right" Width="150"
-				Value="{Binding OverlayScale, Source={x:Static props:Settings.Default}}"/>
+				Value="{Binding OverlayScale, Source={x:Static props:Settings.Default}}"
+                 IsEnabled="{Binding OverlayScaleIsEnabled, Source={x:Static props:Settings.Default}}"/>
             <Label Content="Scale" VerticalAlignment="Center" DockPanel.Dock="Left" />
         </DockPanel>
         <controls:ToggleSwitch x:Name="CheckboxEnableBannedTribe" Content="Show overlay"

@@ -130,5 +130,17 @@ namespace HDT_QoL.Properties {
                 this["IsAlternateTextEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool OverlayScaleIsEnabled {
+            get {
+                return ((bool)(this["OverlayScaleIsEnabled"]));
+            }
+            set {
+                this["OverlayScaleIsEnabled"] = value;
+            }
+        }
     }
 }

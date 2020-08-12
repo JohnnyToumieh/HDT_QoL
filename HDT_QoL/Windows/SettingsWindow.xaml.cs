@@ -69,12 +69,12 @@ namespace HDT_QoL
         {
             if (CheckboxEnableScaleWithWindow.IsChecked == true)
             {
-                SliderOverlayScale.IsEnabled = false;
+                Properties.Settings.Default.OverlayScaleIsEnabled = false;
                 MainHandler.IsScaleWithWindowEnabled = true;
             }
             else
             {
-                SliderOverlayScale.IsEnabled = true;
+                Properties.Settings.Default.OverlayScaleIsEnabled = true;
                 MainHandler.IsScaleWithWindowEnabled = false;
             }
         }

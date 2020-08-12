@@ -84,12 +84,25 @@ namespace HDT_QoL
             }
         }
 
+        public static bool IsScaleWithWindowEnabled
+        {
+            get { return _isScaleWithWindowEnabled; }
+            set
+            {
+                _isScaleWithWindowEnabled = value;
+                if (_isScaleWithWindowEnabled)
+                {
+                    Overlay.ApplyAutoScaling();
+                }
+            }
+        }
+
         public static MainOverlay Overlay;
         public static Guid GameID = Guid.Empty;
         public static bool IsBattlegroundsMode;
         public static bool IsMissingTribeRetrieved;
         public static bool _isBannedTribeEnabled = Properties.Settings.Default.IsBannedTribeEnabled;
-        public static bool IsScaleWithWindowEnabled = Properties.Settings.Default.IsScaleWithWindowEnabled;
+        public static bool _isScaleWithWindowEnabled = Properties.Settings.Default.IsScaleWithWindowEnabled;
         public static bool _isBorderEnabled = Properties.Settings.Default.IsBorderEnabled;
         public static bool _isColorsEnabled = Properties.Settings.Default.IsColorsEnabled;
         public static bool _isAlternateTextEnabled = Properties.Settings.Default.IsAlternateTextEnabled;

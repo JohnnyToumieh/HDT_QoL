@@ -21,7 +21,7 @@ namespace HDT_QoL
 
         public string Author => "Lesterberne";
 
-        public Version Version => new Version(0, 0, 8);
+        public Version Version => new Version(0, 0, 9);
 
         public MenuItem MenuItem => null;
 
@@ -34,8 +34,10 @@ namespace HDT_QoL
 
             _inputManager = new InputManager(_overlay);
             MainHandler.Input = _inputManager;
-
+            
             Core.OverlayCanvas.Children.Add(_overlay);
+
+            Canvas.SetZIndex(_overlay, -100);
             Canvas.SetTop(_overlay, Properties.Settings.Default.OverlayTop);
             Canvas.SetLeft(_overlay, Properties.Settings.Default.OverlayLeft);
 
